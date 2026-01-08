@@ -1,0 +1,48 @@
+.cell {
+  width: 90px;
+  height: 90px;
+  border: 2px solid #444;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 120ms ease;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.cell--win {
+  background-color: rgba(255, 200, 0, 0.35);
+}
+
+.cross {
+  position: relative;
+  width: 60px;
+  height: 60px;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    background: #db1a1a;
+    top: 50%;
+    left: 0;
+    border-radius: 3px;
+  }
+
+  &::before { transform: rotate(45deg); }
+  &::after  { transform: rotate(-45deg); }
+}
+
+.circle {
+  width: 60px;
+  height: 60px;
+  border: 8px solid #2479e2;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
