@@ -8,11 +8,13 @@
   border: 1px solid #354968;
   border-radius: 24px 24px 0 0;
   color: #e5e7eb;
+  font-size: 16px;
 }
 
 .footerMenu__header {
   text-align: center;
   margin-bottom: 24px;
+  font-size: 24px;
 }
 
 .footerMenu__body {
@@ -30,6 +32,7 @@
   text-decoration: none;
   background-color: #020617;
   font-weight: bold;
+  font-size: 16px;
 }
 
 .footerMenu__info {
@@ -45,9 +48,10 @@
 .footerMenu__backBtn {
   border: 2px solid red;
   padding: 11px 9px;
-  border: 4px;
+  border-radius: 8px;
   color: rgb(181, 43, 43);
   text-decoration: none;
   background-color: transparent;
   font-weight: bold;
+  font-size: 14px;
 }

@@ -5,11 +5,12 @@
   color: #e5e7eb;
   padding: 16px;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 .historyPage__title {
   margin: 0;
-  font-size: 22px;
+  font-size: 24px;
   text-align: center;
   margin-bottom: 40px;
 }
@@ -17,7 +18,7 @@
 .historyPage__backBtn {
   padding: 16px 11px;
   border-radius: 8px;
-  border: 1px solid #1e293b;
+  border: 1px solid #334155;
   background: #0f172a;
   color: inherit;
   cursor: pointer;
@@ -34,13 +35,16 @@
   display: grid;
   gap: 10px;
 }
+.historyPage__itemWinner{
+  font-size: 20px;
+}
 
 .historyPage__itemBtn {
   width: 100%;
   text-align: left;
   padding: 12px;
   border-radius: 14px;
-  border: 1px solid #1e293b;
+  border: 1px solid #334155;
   background: #0f172a;
   color: inherit;
   cursor: pointer;
@@ -58,11 +62,12 @@
 
 .historyPage__itemMeta {
   opacity: 0.75;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .historyPage__itemDate {
   opacity: 0.75;
   font-size: 12px;
   white-space: nowrap;
+  font-size: 12px;
 }
