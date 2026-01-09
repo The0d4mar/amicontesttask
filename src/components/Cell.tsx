@@ -4,20 +4,19 @@ import { CellValue } from '../types';
 
 interface CellProps {
   value: CellValue;
-  onClick: () => void;
-  disabled: boolean;
   isWinning: boolean;
+  style?: React.CSSProperties;
 }
 
-export function Cell({ value, onClick, disabled, isWinning }: CellProps) {
+export function Cell({ value, isWinning, style }: CellProps) {
   return (
-    <button
-      className={`cell ${isWinning ? 'cell--win' : ''}`}
-      onClick={onClick}
-      disabled={disabled}
+    <div
+      className={['cell', value ? 'cell--filled' : '', isWinning ? 'cell--win' : ''].join(' ')}
+      style={style}
+      aria-label="cell"
     >
       {value === 'X' && <div className="cross" />}
       {value === 'O' && <div className="circle" />}
-    </button>
+    </div>
   );
 }

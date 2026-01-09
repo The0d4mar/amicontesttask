@@ -1,48 +1,131 @@
 .cell {
-  width: 90px;
-  height: 90px;
-  border: 2px solid #444;
-  background: transparent;
+  position: absolute !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: background-color 120ms ease;
 
-  &:disabled {
-    cursor: default;
-  }
+  border: 2px solid #1e293b;
+
+  background: transparent;
+
+
+  pointer-events: none;
+
+  transition: background-color 160ms ease;
 }
 
-.cell--win {
-  background-color: rgba(255, 200, 0, 0.35);
+
+
+.cell--filled .cross,
+.cell--filled .circle {
+  animation: popIn 160ms ease-out;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .cross {
   position: relative;
-  width: 60px;
-  height: 60px;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 8px;
-    background: #db1a1a;
-    top: 50%;
-    left: 0;
-    border-radius: 3px;
-  }
-
-  &::before { transform: rotate(45deg); }
-  &::after  { transform: rotate(-45deg); }
+  width: 50px;
+  height: 50px;
 }
 
+.cross::before,
+.cross::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  border-radius: 4px;
+  background: #ff0000;
+  top: 50%;
+  left: 0;
+  transform-origin: center;
+}
+
+.cell--filled .cross::before {
+  transform: translateY(-50%) rotate(45deg) scaleX(0);
+  animation: drawLine1 160ms ease-out forwards;
+}
+
+.cell--filled .cross::after {
+  transform: translateY(-50%) rotate(-45deg) scaleX(0);
+  animation: drawLine2 160ms ease-out 60ms forwards;
+}
+
+@keyframes drawLine1 {
+  to {
+    transform: translateY(-50%) rotate(45deg) scaleX(1);
+  }
+}
+
+@keyframes drawLine2 {
+  to {
+    transform: translateY(-50%) rotate(-45deg) scaleX(1);
+  }
+}
+
+
 .circle {
-  width: 60px;
-  height: 60px;
-  border: 8px solid #2479e2;
-  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  border: 6px solid #0080ff;
   border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.cell--filled .circle {
+  animation: circleIn 180ms cubic-bezier(0.2, 1.2, 0.2, 1) forwards;
+}
+
+@keyframes circleIn {
+  0% {
+    transform: scale(0.55);
+    opacity: 0.2;
+  }
+  70% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.cell--win {
+  background-color: rgba(9, 240, 9, 0.505);
+  animation: winPulse 900ms ease-in-out infinite;
+}
+
+@keyframes winPulse {
+  0%,
+  100% {
+    background-color: rgba(9, 240, 9, 0.505);
+  }
+  50% {
+    background-color: rgba(58, 116, 58, 0.259);
+  }
+}
+
+.cell--win .cross,
+.cell--win .circle {
+  animation: winBounce 500ms ease-out infinite alternate;
+}
+
+@keyframes winBounce {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
 }
